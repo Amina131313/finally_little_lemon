@@ -7,6 +7,11 @@ export default function Onboarding() {
     const [email, setEmail] = useState('');
     const router = useRouter();
 
+    const handleFirstNameChange = (text) => {
+        const capitalizedText = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+        setFirstName(capitalizedText);
+    };
+
    return (
     <View style={styles.container}>
         <View style={styles.heading_container}>
@@ -19,8 +24,7 @@ export default function Onboarding() {
         <View style={styles.inputContainer}>
             <TextInput
                 style={styles.input}
-                onChangeText={setFirstName}
-                value={firstName}
+                onChangeText={handleFirstNameChange}                value={firstName}
                 autoCorrect = {false}
                 placeholder="First Name"
                 keyboardType="numeric"
